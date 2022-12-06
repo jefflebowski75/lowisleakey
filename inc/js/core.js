@@ -505,12 +505,34 @@ jQuery(document).ready(function ($) {
   $(".map-close").click(function () {
     $(".map-hero").removeClass("visible");
   });
+  
+  
+  function country_map() {
+    $('.image-panel').hide();
+    $('.image-panel-wrapper').children().first().show();
+    var initial_country = $('.image-panel-wrapper').children().first().attr('id');
+    $("path#" + initial_country).addClass('active');
+    $('.country-panel p.' + initial_country).addClass('active');
+    $(".country-panel > p").click(function () {
+      var selected_country = $(this).attr('class');  
+      $('.map-wrapper > svg path').removeClass('active');
+      $("path#" + selected_country).addClass('active');
+      $('#' + selected_country).fadeIn();
+      $('.image-panel').not('#' + selected_country).fadeOut();
+      $('.country-panel p').removeClass('active');
+      $(this).addClass('active');
 
+      console.log(selected_country);
+    });
+  };
 
-
-
+  country_map();
 
   // GETTING RID OF OWL
+
+
+
+
 }); //Don't remove ---- end of jQuery wrapper
 
 var coll = document.getElementsByClassName("collapsible");
@@ -659,3 +681,5 @@ const ReadMore = (() => {
 })();
 
 ReadMore.init();
+
+

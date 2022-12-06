@@ -30,6 +30,9 @@
     background:white;
     svg {
         max-width:50rem;
+        .active {
+            fill:$color-primary;
+        }
     }
     .country-panel {
         position:absolute;
@@ -45,6 +48,12 @@
             font-size: $default-font-size * .8;
             &:first-of-type {
                 border-top:1px solid grey;
+            }
+            &.active {
+                color:$color-primary;
+            }
+            &:hover {
+                cursor: pointer;
             }
         }
     }
