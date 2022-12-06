@@ -24,8 +24,27 @@
     <?php wp_head(); ?>
 
 </head>
-
 <body <?php body_class(); ?>>
+
+<header>
+    <div class="row-wide">
+        <div class="logo">
+            <?php get_template_part('inc/img/logo');?>
+        </div>
+        <menu>
+                <? wp_nav_menu(array(
+                    'theme_location' => 'main-menu',
+                    'container_class' => 'main-menu'
+                )); ?>
+        </menu>
+        <div class="search">
+            <input type="Search" id="search-field" placeholder="Search"/>
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+    </div>
+</header>
+
+
     <main>
 
         <!--closes in footer.php-->

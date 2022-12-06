@@ -1,0 +1,15 @@
+.headline {
+    margin:10rem 0;
+    .heading__primary {
+        line-height: 1.6;
+    }
+}
+
+.leopard-device {
+    position: relative;
+    svg {
+        width: 250%;
+        height: auto;
+        margin-top: -20vw;
+    }
+}

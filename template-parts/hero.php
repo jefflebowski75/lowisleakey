@@ -1,7 +1,3 @@
-<?php
-$hero = get_field('hero');
-if( $hero ): ?>
-
 <?php $heroImage = get_field('hero_background_image');?>
 
 <div class="hero" style="background-image: url(<?php echo $heroImage['url']; ?>);">
@@ -11,12 +7,10 @@ if( $hero ): ?>
                 Lowis & Leakey    
             </h2>
             <h1 class="heading heading__xl">
-                <?php echo ( $hero['heading'] ); ?>
+                <?php the_field( 'hero_heading' ); ?>
             </h1>
         </div>
     </div>
 </div>    
-
-<?php endif; ?>
 
 

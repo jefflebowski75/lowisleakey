@@ -1,4 +1,5 @@
-.row {
+.row,
+.row-wide {
   max-width: $grid-width;
   margin: 0 auto;
 
@@ -63,57 +64,11 @@
     );
   }
 }
-section {
-  padding: 5rem 0;
-  // background: $color-primary-bg;
-  &.section-largeadvert {
-    padding: 0;
-  }
-  &.imgtext-slider {
-    padding: 1rem 0;
-  }
-  @include respond(phone) {
-    padding: 2.5rem 0;
-  }
-  &.image-rows-outer {
-    padding: 1rem 0;
-  }
-  // &.simple-text {
-  //   padding: 2rem 0;
-  // }
-  &.section-itin-camps {
-    padding: 5rem 0 0;
-  }
-}
-.single-post section {
-  padding: 2.5rem 0;
+.row-wide {
+  max-width: $grid-width * 1.4;
+  padding:0 2rem;
 }
 
-@media (min-width: 56.25rem) {
-  section,
-  footer {
-    .w40 {
-      width: calc(#{$grid-width} * 0.4);
-      margin: 0 auto;
-    }
-    .w50 {
-      width: calc(#{$grid-width} * 0.5);
-      margin: 0 auto;
-    }
-    .w60 {
-      width: calc(#{$grid-width} * 0.6);
-      margin: 0 auto;
-    }
-    .w70 {
-      width: calc(#{$grid-width} * 0.7);
-      margin: 0 auto;
-    }
-    .w80 {
-      width: calc(#{$grid-width} * 0.8);
-      margin: 0 auto;
-    }
-  }
-}
 .grid-layout2 {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -149,18 +104,10 @@ section {
     grid-template-columns: repeat(2, 1fr);
   }
 }
+.no-gutter {
+  grid-gap:0;
+}
 .row.extended {
   max-width: unset;
   overflow: hidden;
-  .itin-slider {
-    margin-left: 15%;
-    @include respond(tab-port) {
-      margin-left: 0;
-    }
-    .owl-stage {
-      .active ~ .active ~ .active {
-        opacity: 0.3;
-      }
-    }
-  }
 }
