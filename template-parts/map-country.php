@@ -13,7 +13,7 @@
                                 <h2 class="heading heading__lg heading__light">Discover <?php echo $country;?></h2>
                             </div>
                             <div>
-                                CLICKY
+                                <a href="" class="button button__inline button__ghost">Discover More</a>
                             </div>
                         </div>
                     </div>

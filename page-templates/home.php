@@ -12,4 +12,12 @@ get_header();?>
 
 <?php get_template_part("template-parts/map-country");?>
 
+<?php get_template_part("template-parts/slider-cta");?>
+
 <?php get_footer();?>
+
+
+
+
+
+

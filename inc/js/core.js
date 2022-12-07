@@ -220,6 +220,32 @@ jQuery(document).ready(function ($) {
     },
   });
 
+
+  $(".slider-cta").owlCarousel({
+    loop: true,
+    margin: 48,
+    center: true,
+    navText: [
+      "<div class='nav-button owl-prev'><i class='fal fa-chevron-left'></i></div>",
+      "<div class='nav-button owl-next'><i class='fal fa-chevron-right'></i></div>",
+    ],
+    responsive: {
+      0: {
+        items: 1,
+        nav: false,
+        dotsEach: 4,
+      },
+      600: {
+        items: 1,
+        nav: false,
+      },
+      1000: {
+        items: 1,
+        nav: true,
+        dots: false,
+      },
+    },
+  });
   // ========== Controller for lightbox elements
 
   
@@ -521,8 +547,6 @@ jQuery(document).ready(function ($) {
       $('.image-panel').not('#' + selected_country).fadeOut();
       $('.country-panel p').removeClass('active');
       $(this).addClass('active');
-
-      console.log(selected_country);
     });
   };
 
