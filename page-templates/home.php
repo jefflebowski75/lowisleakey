@@ -4,20 +4,24 @@
  *
  * @package lowisleakey
  */
-get_header();?>
+get_header(); ?>
 
-<?php get_template_part("template-parts/hero");?>
+<?php get_template_part("template-parts/hero"); ?>
 
-<?php get_template_part("template-parts/headline");?>
+<?php get_template_part("template-parts/headline"); ?>
 
-<?php get_template_part("template-parts/map-country");?>
+<div class="vertical-spacing"></div>
 
-<?php get_template_part("template-parts/slider-cta");?>
+<?php get_template_part("template-parts/map-country"); ?>
 
-<?php get_footer();?>
+<div class="vertical-spacing"></div>
 
+<?php get_template_part("template-parts/slider-cta"); ?>
 
+<div class="vertical-spacing"></div>
 
+<?php get_template_part("template-parts/gallery-feed"); ?>
 
+<div class="vertical-spacing"></div>
 
-
+<?php get_footer(); ?>

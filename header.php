@@ -15,7 +15,9 @@
     <meta name="description" content="">
     <meta name="keywords" content=" ">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title><?php echo is_front_page() ? get_bloginfo('name') : wp_title(''); ?></title>
+    <title>
+        <?php echo is_front_page() ? get_bloginfo('name') : wp_title(''); ?>
+    </title>
     <script src="https://kit.fontawesome.com/4faa096376.js" crossorigin="anonymous" defer="defer"></script>
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.0.0/mapbox-gl.js'></script>
     <!-- <script src='https://api.tiles.mapbox.com/mapbox.js/plugins/turf/v2.0.0/turf.min.js'></script> -->
@@ -24,25 +26,26 @@
     <?php wp_head(); ?>
 
 </head>
+
 <body <?php body_class(); ?>>
 
-<header>
-    <div class="row-wide">
-        <div class="logo">
-            <?php get_template_part('inc/img/logo');?>
-        </div>
-        <menu>
+    <header>
+        <div class="row-wide">
+            <div class="logo">
+                <?php get_template_part('inc/img/logo'); ?>
+            </div>
+            <menu>
                 <? wp_nav_menu(array(
                     'theme_location' => 'main-menu',
                     'container_class' => 'main-menu'
                 )); ?>
-        </menu>
-        <div class="search">
-            <input type="Search" id="search-field" placeholder="Search"/>
-            <i class="fa-solid fa-magnifying-glass"></i>
+            </menu>
+            <div class="search">
+                <input type="Search" id="search-field" placeholder="Search" />
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
         </div>
-    </div>
-</header>
+    </header>
 
 
     <main>

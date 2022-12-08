@@ -14,7 +14,7 @@ jQuery(document).ready(function ($) {
     }
   });
 
-  
+
 
 
   /* TABBED CONTENT */
@@ -223,8 +223,9 @@ jQuery(document).ready(function ($) {
 
   $(".slider-cta").owlCarousel({
     loop: true,
-    margin: 48,
+    margin: 50,
     center: true,
+    stagePadding: 100,
     navText: [
       "<div class='nav-button owl-prev'><i class='fal fa-chevron-left'></i></div>",
       "<div class='nav-button owl-next'><i class='fal fa-chevron-right'></i></div>",
@@ -248,7 +249,7 @@ jQuery(document).ready(function ($) {
   });
   // ========== Controller for lightbox elements
 
-  
+
 
   $(".toggle-block label").click(function () {
     var otherLabels = $(this).parent().siblings(".item").find("label");
@@ -333,10 +334,10 @@ jQuery(document).ready(function ($) {
 
   $("#filter-button").click(function () {
     $(".mobile-filter").toggleClass("open");
-    
+
   });
-  window.addEventListener('scroll', function() {
-    $( ".mobile-filter" ).removeClass( "open" );
+  window.addEventListener('scroll', function () {
+    $(".mobile-filter").removeClass("open");
   });
 
 
@@ -403,15 +404,15 @@ jQuery(document).ready(function ($) {
     mobile: false,
     interval: 40,
   };
-/*
-  ScrollReveal().reveal(".fmleft", slideLeft);
-  ScrollReveal().reveal(".fmtop", slideDown);
-  ScrollReveal().reveal(".fmbottom", slideUp);
-  ScrollReveal().reveal(".fmright", slideRight);
-  ScrollReveal().reveal(".tile", tileDown);
-  ScrollReveal().reveal(".row-default", slideRight);
-  ScrollReveal().reveal(".row-reverse", slideLeft);
-*/
+  /*
+    ScrollReveal().reveal(".fmleft", slideLeft);
+    ScrollReveal().reveal(".fmtop", slideDown);
+    ScrollReveal().reveal(".fmbottom", slideUp);
+    ScrollReveal().reveal(".fmright", slideRight);
+    ScrollReveal().reveal(".tile", tileDown);
+    ScrollReveal().reveal(".row-default", slideRight);
+    ScrollReveal().reveal(".row-reverse", slideLeft);
+  */
   $(".expvideo")
     .parent()
     .click(function () {
@@ -531,8 +532,8 @@ jQuery(document).ready(function ($) {
   $(".map-close").click(function () {
     $(".map-hero").removeClass("visible");
   });
-  
-  
+
+
   function country_map() {
     $('.image-panel').hide();
     $('.image-panel-wrapper').children().first().show();
@@ -540,7 +541,7 @@ jQuery(document).ready(function ($) {
     $("path#" + initial_country).addClass('active');
     $('.country-panel p.' + initial_country).addClass('active');
     $(".country-panel > p").click(function () {
-      var selected_country = $(this).attr('class');  
+      var selected_country = $(this).attr('class');
       $('.map-wrapper > svg path').removeClass('active');
       $("path#" + selected_country).addClass('active');
       $('#' + selected_country).fadeIn();
@@ -563,14 +564,14 @@ var coll = document.getElementsByClassName("collapsible");
 var i;
 
 for (i = 0; i < coll.length; i++) {
-  coll[i].addEventListener("click", function() {
+  coll[i].addEventListener("click", function () {
     this.classList.toggle("active");
     var content = this.nextElementSibling;
-    if (content.style.maxHeight){
+    if (content.style.maxHeight) {
       content.style.maxHeight = null;
     } else {
       content.style.maxHeight = content.scrollHeight + "px";
-    } 
+    }
   });
 }
 
