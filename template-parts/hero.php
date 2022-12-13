@@ -1,6 +1,9 @@
 <?php $heroImage = get_field('hero_background_image'); ?>
 
 <div class="hero" style="background-image: url(<?php echo $heroImage['url']; ?>);">
+    <a href="/your-safari">
+        <div class="floating-link">YOUR ITINERARY</div>
+    </a>
     <div class="row grid-layout2 ">
         <div class="hero__heading">
             <h2 class="heading heading__sm heading__alt">

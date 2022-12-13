@@ -509,7 +509,7 @@ jQuery(document).ready(function ($) {
 
     var c,
       currentScrollTop = 0,
-      navbar = $("#navbar");
+      navbar = $("header");
 
     $(window).scroll(function () {
       var a = $(window).scrollTop();

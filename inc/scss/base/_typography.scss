@@ -57,9 +57,31 @@ body {
   }
 }
 
-a {
+p a {
+  position: relative;
+  display: inline-block;
   text-decoration: none;
-  color: $color-black;
+  color: $color-primary;
+
+  &:before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: -1px;
+    height: 1px;
+    width: calc(100% + 2px);
+    z-index: -1;
+    background: $color-primary;
+    transition: .3s height ease;
+  }
+
+  &:hover {
+    color: $color-black;
+
+    &:before {
+      height: 100%;
+    }
+  }
 }
 
 .paragraph,

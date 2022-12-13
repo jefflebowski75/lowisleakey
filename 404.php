@@ -8,6 +8,12 @@
 get_header();
 ?>
 
+<?php if (strpos($_SERVER["REQUEST_URI"], "/your-safari/") !== false) {
+    get_template_part('template-parts/check-password');
+} ?>
+
+
+
 <div id="primary" class="content-area">
     <main id="main" class="site-main">
 
@@ -23,6 +29,14 @@ get_header();
 
     </main><!-- #main -->
 </div><!-- #primary -->
+
+<script>
+    document.getElementById("goto-itin").onclick = function () { findItinerary() };
+    function findItinerary() {
+        var url = '/your-safari/' + document.getElementById('unique_id').value;
+        window.location.href = url;
+    }
+</script>
 
 <?php
 get_footer();
