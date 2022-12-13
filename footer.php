@@ -7,6 +7,7 @@
 
 <?php wp_footer(); ?>
 </main>
+<?php if (!is_page(array('your-safari'))) { ?>
 <footer>
     <?php
 
@@ -52,15 +53,15 @@
             </div>
 
             <?php
-            if (have_rows('left_footer_menu', 'options')):
-                while (have_rows('left_footer_menu', 'options')):
-                    the_row(); ?>
+    if (have_rows('left_footer_menu', 'options')):
+        while (have_rows('left_footer_menu', 'options')):
+            the_row(); ?>
             <div class="left-menu">
                 <?php
-                    if (have_rows('menu_items')):
-                        while (have_rows('menu_items')):
-                            the_row();
-                            $footerlink = get_sub_field('text'); ?>
+            if (have_rows('menu_items')):
+                while (have_rows('menu_items')):
+                    the_row();
+                    $footerlink = get_sub_field('text'); ?>
                 <p class="menu-item">
                     <?php echo $footerlink; ?>
                 </p>
@@ -69,15 +70,15 @@
             </div>
             <?php endwhile; endif; ?>
             <?php
-            if (have_rows('right_footer_menu', 'options')):
-                while (have_rows('right_footer_menu', 'options')):
-                    the_row(); ?>
+    if (have_rows('right_footer_menu', 'options')):
+        while (have_rows('right_footer_menu', 'options')):
+            the_row(); ?>
             <div class="right-menu">
                 <?php
-                    if (have_rows('menu_items')):
-                        while (have_rows('menu_items')):
-                            the_row();
-                            $footerlink = get_sub_field('text'); ?>
+            if (have_rows('menu_items')):
+                while (have_rows('menu_items')):
+                    the_row();
+                    $footerlink = get_sub_field('text'); ?>
                 <p class="menu-item">
                     <?php echo $footerlink; ?>
                 </p>
@@ -111,9 +112,7 @@
     </div>
 
 </footer>
-
-
-
+<?php } ?>
 </body>
 
 </html>

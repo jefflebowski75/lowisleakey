@@ -553,7 +553,15 @@ jQuery(document).ready(function ($) {
 
   country_map();
 
-  // GETTING RID OF OWL
+  $(".video > svg").click(function () {
+    $(".video-modal").addClass("visible");
+    $('.video-modal > video').trigger('play');
+  });
+
+  $(".video-modal > .close").click(function () {
+    $(".video-modal").removeClass("visible");
+  });
+
 
 
 

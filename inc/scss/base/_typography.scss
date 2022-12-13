@@ -47,6 +47,10 @@ body {
     color: white;
   }
 
+  &__uppercase {
+    text-transform: uppercase;
+  }
+
   &+p {
     margin-top: 1em;
     ;

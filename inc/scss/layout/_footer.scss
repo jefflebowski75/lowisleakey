@@ -79,6 +79,12 @@ footer {
 
     svg {
       margin: -1rem 0 0 1rem;
+      transition: .3s filter ease;
+
+      &:hover {
+        cursor: pointer;
+        filter: brightness(1.5);
+      }
     }
   }
 

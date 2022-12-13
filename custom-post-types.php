@@ -5,6 +5,7 @@ add_action('init', 'custom_post_type_safari_gallery', 0);
 add_action('init', 'taxonomy_propertystyle', 0);
 add_action('init', 'taxonomy_safaritype', 0);
 add_action('init', 'taxonomy_destination', 0);
+add_action('init', 'taxonomy_gallery_location', 0);
 add_action('init', 'taxonomy_propertyfacility', 0);
 add_action('init', 'taxonomy_activities', 0);
 
@@ -185,7 +186,7 @@ function taxonomy_destination()
 
     register_taxonomy(
         'destination',
-        array('properties', 'itineraries', 'safari_gallery'),
+        array('properties', 'itineraries'),
         array(
             'hierarchical' => true,
             'labels' => $labels,
@@ -197,6 +198,40 @@ function taxonomy_destination()
         )
     );
 }
+
+// ====== Type Gallery Locations
+function taxonomy_gallery_location()
+{
+
+    $labels = array(
+        'name' => _x('Gallery Locations', 'taxonomy general name'),
+        'singular_name' => _x('Gallery Location', 'taxonomy singular name'),
+        'search_items' => __('Search Gallery Locations'),
+        'all_items' => __('All Gallery Locations'),
+        'parent_item' => __('Parent Gallery Location'),
+        'parent_item_colon' => __('Parent Gallery Locations:'),
+        'edit_item' => __('Edit Gallery Locations'),
+        'update_item' => __('Update Gallery Location'),
+        'add_new_item' => __('Add New Gallery Location'),
+        'new_item_name' => __('New Gallery Location'),
+        'menu_name' => __('Gallery Locations')
+    );
+
+    register_taxonomy(
+        'gallery_location',
+        array('safari_gallery'),
+        array(
+            'hierarchical' => true,
+            'labels' => $labels,
+            'has_archive' => true,
+            'show_ui' => true,
+            'show_admin_column' => true,
+            'query_var' => true,
+            'rewrite' => array('slug' => 'gallery_location', 'hierarchical' => true)
+        )
+    );
+}
+
 // ====== Type Property Style
 function taxonomy_propertystyle()
 {

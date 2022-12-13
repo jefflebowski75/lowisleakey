@@ -27,7 +27,7 @@
                 <p>
                     <?php the_field('dates'); ?>
                 </p>
-                <?php $terms = get_the_terms($post->ID, 'destination');
+                <?php $terms = get_the_terms($post->ID, 'gallery_location');
         if ($terms) {
             foreach ($terms as $term) { ?>
                 <p class="meta__list">

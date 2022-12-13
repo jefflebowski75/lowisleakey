@@ -29,6 +29,10 @@
 
 <body <?php body_class(); ?>>
 
+    <?php if (!is_page(array('your-safari'))) { ?>
+
+    <?php get_template_part('template-parts/video-modal'); ?>
+
     <header>
         <div class="row-wide">
             <div class="logo">
@@ -47,7 +51,7 @@
         </div>
     </header>
 
-
+    <?php } ?>
     <main>
 
         <!--closes in footer.php-->
