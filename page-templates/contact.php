@@ -4,7 +4,8 @@
  *
  * @package lowisleakey
  */
-get_header('contact');?>
+get_header('contact'); ?>
 
+Contact US
 
 <?php get_footer(); ?>

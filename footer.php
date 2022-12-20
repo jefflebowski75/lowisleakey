@@ -8,16 +8,35 @@
 <?php wp_footer(); ?>
 </main>
 <?php if (!is_page(array('your-safari'))) { ?>
+
 <footer>
-    <?php
 
-    if (have_rows('site-wide_testimonial', 'options')):
+    <?php if (get_field('footer_required') == 'yes') {
+        $footer_background = get_field('footer_background_image'); ?>
 
-        while (have_rows('site-wide_testimonial', 'options')):
-            the_row();
-            $testimonialBackground = get_sub_field('testimonial_background')['url'];
-            $testimonialCopy = get_sub_field('testimonial');
-            $testimonialAuthor = get_sub_field('author');
+    <div class="footer-cta" style="background-image:url(<?php echo $footer_background['url'] ?>);">
+        <div class="row">
+            <div class="copy">
+                <h3 class="heading heading__sm">
+                    <?php the_field('footer_copy'); ?>
+                </h3>
+                <?php ?>
+            </div>
+            <a href="<?php the_field('footer_button_target'); ?>" class="button button__ghost button__inline">
+                <?php the_field('footer_button_text'); ?>
+            </a>
+        </div>
+    </div>
+
+    <?php } else {
+
+        if (have_rows('site-wide_testimonial', 'options')):
+
+            while (have_rows('site-wide_testimonial', 'options')):
+                the_row();
+                $testimonialBackground = get_sub_field('testimonial_background')['url'];
+                $testimonialCopy = get_sub_field('testimonial');
+                $testimonialAuthor = get_sub_field('author');
 
     ?>
     <div class="testimonial" style="background-image:url(<?php echo $testimonialBackground; ?>);">
@@ -35,7 +54,9 @@
         </div>
     </div>
 
-    <?php endwhile; endif; ?>
+    <?php endwhile; endif;
+
+    } ?>
 
     <div class="lower-panel">
         <div class="row">
@@ -112,6 +133,10 @@
     </div>
 
 </footer>
+
+
+
+
 <?php } ?>
 </body>
 

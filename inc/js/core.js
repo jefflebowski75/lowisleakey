@@ -1,5 +1,7 @@
 
 //@prepros-prepend owl.carousel.min.js
+//@prepros-prepend fslightbox.js
+//@prepros-prepend scrollreveal.js
 
 jQuery(document).ready(function ($) {
   /* ADD CLASS ON SCROLL*/
@@ -247,6 +249,57 @@ jQuery(document).ready(function ($) {
       },
     },
   });
+
+  $(".highlights").owlCarousel({
+    loop: true,
+    margin: 50,
+    center: true,
+    stagePadding: 100,
+    navText: [
+      "<div class='nav-button owl-prev'><i class='fal fa-chevron-left'></i></div>",
+      "<div class='nav-button owl-next'><i class='fal fa-chevron-right'></i></div>",
+    ],
+    responsive: {
+      0: {
+        items: 1,
+        nav: false,
+        dotsEach: 4,
+      },
+      600: {
+        items: 1,
+        nav: false,
+      },
+      1000: {
+        items: 1,
+        nav: true,
+        dots: false,
+      },
+    },
+  });
+
+  $(".who-slider").owlCarousel({
+    loop: true,
+    center: true,
+    dots: true,
+    pagination: false,
+    navigation: true,
+    responsive: {
+      0: {
+        items: 1,
+        nav: false,
+        dotsEach: 1,
+      },
+      600: {
+        items: 1,
+        nav: false,
+      },
+      1000: {
+        items: 1,
+        nav: true,
+        dots: false,
+      },
+    },
+  });
   // ========== Controller for lightbox elements
 
 
@@ -266,18 +319,6 @@ jQuery(document).ready(function ($) {
     $(this).toggleClass("collapsed");
     $(this).next().slideToggle();
   });
-
-  // new Readmore("article", {
-  //   collapsedHeight: 132,
-  // });
-
-  // new Readmore(".readmore", {
-  //   collapsedHeight: 192,
-  // });
-
-  // new Readmore(".staffreadmore", {
-  //   collapsedHeight: 132,
-  // });
 
   // SIDEBAR MOBILEMENU
 
@@ -340,10 +381,6 @@ jQuery(document).ready(function ($) {
     $(".mobile-filter").removeClass("open");
   });
 
-
-
-
-
   var containerPG = document.querySelector(".paged-six");
   var mixer;
 
@@ -357,15 +394,13 @@ jQuery(document).ready(function ($) {
 
   // ACCORDIAN SINGLE ITEM ONLY
 
-  $(document).ready(function () {
-    $(".block__title").click(function (event) {
-      if ($(".block").hasClass("one")) {
-        $(".block__title").not($(this)).removeClass("active");
-        $(".block__text").not($(this).next()).slideUp(300);
-      }
-      $(this).toggleClass("active").next().slideToggle(300);
+  var accordion = $('.accordion').length;
+  if (accordion) {
+    $(".accordion__item-question").click(function () {
+      $(this).next('.accordion__item-answer').slideToggle();
+      $(this).parent('.accordion__item').toggleClass('active');
     });
-  });
+  }
 
   var slideLeft = {
     distance: "40px",
@@ -404,15 +439,15 @@ jQuery(document).ready(function ($) {
     mobile: false,
     interval: 40,
   };
-  /*
-    ScrollReveal().reveal(".fmleft", slideLeft);
-    ScrollReveal().reveal(".fmtop", slideDown);
-    ScrollReveal().reveal(".fmbottom", slideUp);
-    ScrollReveal().reveal(".fmright", slideRight);
-    ScrollReveal().reveal(".tile", tileDown);
-    ScrollReveal().reveal(".row-default", slideRight);
-    ScrollReveal().reveal(".row-reverse", slideLeft);
-  */
+
+  ScrollReveal().reveal(".fmleft", slideLeft);
+  ScrollReveal().reveal(".fmtop", slideDown);
+  ScrollReveal().reveal(".fmbottom", slideUp);
+  ScrollReveal().reveal(".fmright", slideRight);
+  ScrollReveal().reveal(".tile", tileDown);
+  ScrollReveal().reveal(".row-default", slideRight);
+  ScrollReveal().reveal(".row-reverse", slideLeft);
+
   $(".expvideo")
     .parent()
     .click(function () {
@@ -509,7 +544,8 @@ jQuery(document).ready(function ($) {
 
     var c,
       currentScrollTop = 0,
-      navbar = $("header");
+      navbar = $("header"),
+      intineraryLink = $('.floating-link');
 
     $(window).scroll(function () {
       var a = $(window).scrollTop();
@@ -519,8 +555,10 @@ jQuery(document).ready(function ($) {
 
       if (c < currentScrollTop && a > b + b) {
         navbar.addClass("scrollUp");
+        intineraryLink.addClass('moveLeft');
       } else if (c > currentScrollTop && !(a <= b)) {
         navbar.removeClass("scrollUp");
+        intineraryLink.removeClass('moveLeft');
       }
       c = currentScrollTop;
     });
@@ -550,8 +588,27 @@ jQuery(document).ready(function ($) {
       $(this).addClass('active');
     });
   };
-
   country_map();
+
+  $(document).ready(function () {
+    $('.country-panel p').each(function () {
+      var agent_country = $(this).attr("id");
+      $("path#" + agent_country).addClass('available');
+    });
+  });
+
+  function where_we_go_map() {
+    $('.where-we-go #map-format').addClass('highlight');
+    $(".where-we-go .country-panel p").hover(function () {
+      var selected_country = $(this).attr('id');
+      $('.map-wrapper > svg path').removeClass('active');
+      $("path#" + selected_country).addClass('active');
+      $('#' + selected_country).fadeIn();
+    });
+  }
+  where_we_go_map();
+
+
 
   $(".video > svg").click(function () {
     $(".video-modal").addClass("visible");
@@ -560,11 +617,52 @@ jQuery(document).ready(function ($) {
 
   $(".video-modal > .close").click(function () {
     $(".video-modal").removeClass("visible");
+    $('.video-modal > video').trigger('pause');
+    $('.video-modal > video').currentTime(0);
   });
 
+  $("#grid-format").click(function () {
+    $(".highlights").slideUp();
+    $(".highlight-grid").slideDown();
+    $(this).addClass('highlight');
+    $("#wide-format").removeClass('highlight');
+  });
 
+  $("#wide-format").click(function () {
+    $(".highlights").slideDown();
+    $(".highlight-grid").slideUp();
+    $(this).addClass('highlight');
+    $("#grid-format").removeClass('highlight');
+  });
 
+  $("#map-format").click(function () {
+    $(".grid-layout").slideUp();
+    $(".map-layout").slideDown();
+    $(this).addClass('highlight');
+    $("#grid-format").removeClass('highlight');
+  });
 
+  $("#grid-format").click(function () {
+    $(".grid-layout").slideDown();
+    $(".map-layout").slideUp();
+    $(this).addClass('highlight');
+    $("#map-format").removeClass('highlight');
+  });
+
+  var containerGallery = document.querySelector(".gallery_with_text__header");
+
+  if (containerGallery) {
+    $(".gallery_with_text__header").click(function () {
+      $(this).children('.copy').slideToggle();
+      $(this).toggleClass('open');
+    });
+  }
+  $(".dropdown").click(function () {
+    $(this).toggleClass('active');
+  });
+  $('.dropdown').mouseleave(function () {
+    $(this).removeClass('active');
+  });
 
 }); //Don't remove ---- end of jQuery wrapper
 

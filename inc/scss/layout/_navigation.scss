@@ -34,6 +34,7 @@
   right: 3rem;
   top: 2rem;
   display: none;
+
   @include respond(tab-port) {
     display: block;
   }
@@ -81,87 +82,6 @@
 //   padding-top: 30px;
 // }
 
-.sidebar-list {
-  padding: 0;
-  margin: 0;
-  list-style: none;
-  position: relative;
-  margin-top: 150px;
-  padding-left: 20%;
-}
-
-.sidebar-item {
-  margin: 30px 0;
-  opacity: 0;
-  transform: translateY(-20px);
-  a {
-    &:before {
-      content: "";
-      width: 4rem;
-      height: 2px;
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      background-color: #aaa;
-      transition: all 0.7s ease-in-out;
-    }
-  }
-}
-
-.sidebar-item:first-child {
-  transition: all 0.7s 0.2s ease-in-out;
-}
-
-.sidebar-item:nth-child(2) {
-  transition: all 0.7s 0.4s ease-in-out;
-}
-
-.sidebar-item:nth-child(3) {
-  transition: all 0.7s 0.6s ease-in-out;
-}
-.sidebar-item:nth-child(4) {
-  transition: all 0.7s 0.8s ease-in-out;
-}
-.sidebar-item:nth-child(5) {
-  transition: all 0.7s 1s ease-in-out;
-}
-.sidebar-item:nth-child(6) {
-  transition: all 0.7s 1.2s ease-in-out;
-}
-
-.sidebar-item:last-child {
-  transition: all 0.7s 1.4s ease-in-out;
-}
-
-.sidebar-item.active {
-  opacity: 1;
-  transform: translateY(0px);
-}
-
-.sidebar-anchor {
-  color: #fff;
-  text-decoration: none;
-  font-size: 1.8em;
-  text-transform: uppercase;
-  position: relative;
-  padding-bottom: 2rem;
-}
-
-// .sidebar-anchor:before {
-//   content: "";
-//   width: 0;
-//   height: 2px;
-//   position: absolute;
-//   bottom: 0;
-//   left: 0;
-//   background-color: #fff;
-//   transition: all 0.7s ease-in-out;
-// }
-
-// .sidebar-anchor:hover:before {
-//   width: 100%;
-// }
-
 .ua {
   position: absolute;
   bottom: 20px;
@@ -194,6 +114,7 @@
   .nav-right {
     position: absolute;
   }
+
   // .hidden-xs {
   //   display: block;
   // }
@@ -201,20 +122,24 @@
     // display: none;
   }
 }
+
 .down_arrow {
   text-align: center;
+
   @include respond(tab-port) {
     padding-top: 5rem;
   }
 
   a {
     text-decoration: none;
-    
+
   }
+
   .arrow {
     text-align: center;
     margin: 1% 0;
   }
+
   .bounce {
     -moz-animation: bounce 2s infinite;
     -webkit-animation: bounce 2s infinite;
@@ -222,6 +147,7 @@
   }
 
   @keyframes bounce {
+
     0%,
     20%,
     50%,
@@ -229,9 +155,11 @@
     100% {
       transform: translateY(0);
     }
+
     40% {
       transform: translateY(-30px);
     }
+
     60% {
       transform: translateY(-15px);
     }
@@ -239,22 +167,95 @@
 }
 
 menu {
-  display: inline-block;
+  display: flex;
+
   ul {
+    display: flex;
+    padding: 0;
+
     li {
       display: inline-block;
-      border-left:1px solid $color-grey-mid;
+      //border-left: 1px solid $color-grey-mid;
+
       a {
-        padding:0.5rem 2rem;
+        position: relative;
+        display: block;
+        padding: 1rem 2rem;
         text-transform: uppercase;
         font-size: $default-font-size * .8;
         letter-spacing: .05rem;
         color: $color-grey-mid;
+        text-decoration: none;
+        transition: .3s all ease;
+
+        &:after {
+          content: '';
+          position: absolute;
+          top: 10px;
+          right: 0;
+          width: 1px;
+          height: calc(100% - 20px);
+          background-color: $color-grey-light;
+        }
+
+        &:hover {
+          background-color: white;
+        }
       }
     }
   }
 
-  @include respond(tab-port) {
+  .dropdown {
+    position: relative;
 
+    a {
+      padding-right: 4rem;
+
+      &:after {
+        display: none;
+      }
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: $chevronOffset;
+      background: url('inc/img/chevron.svg');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      width: .75rem;
+      height: 100%;
+      transform: rotate(90deg);
+      filter: brightness(0.5);
+    }
+
+    .sub-menu {
+      display: block;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      padding: 1rem 0 0;
+      transition: .5s all ease;
+      transform: scaleY(0);
+      transform-origin: top;
+      background-color: rgba(255, 255, 255, 0.75);
+      //border-right: 1px solid transparent;
+
+      li {
+        display: block;
+        border: none;
+      }
+    }
+
+    &.active {
+      .sub-menu {
+        transform: scaleY(1);
+      }
+    }
   }
+
+  @include respond(tab-port) {}
 }

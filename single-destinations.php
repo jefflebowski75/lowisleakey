@@ -6,5 +6,7 @@
  */
 get_header(); ?>
 
-A DESTI PAGE
+<div class="error-404">
+    dfddff
+</div>
 <?php get_footer(); ?>

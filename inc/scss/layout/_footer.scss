@@ -24,11 +24,14 @@ footer {
     }
   }
 
-  .testimonial {
+  .testimonial,
+  .footer-cta {
     padding: 10rem 0;
     background-size: cover;
+    background-position: center;
 
-    &__item {
+    &__item,
+    .copy {
       width: 50vw;
       color: white;
 
@@ -54,6 +57,15 @@ footer {
         margin-bottom: 4rem;
         ;
         font-family: $default-header-style;
+      }
+    }
+
+    .copy {
+      width: 25vw;
+
+      .heading {
+        line-height: 2;
+        margin-bottom: 5rem;
       }
     }
   }

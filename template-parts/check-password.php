@@ -5,7 +5,9 @@
     <div class="header-overlay">
         <div class="row">
             <div class="logo">
-                <?php get_template_part('inc/img/logo'); ?>
+                <a href="<?php echo site_url(); ?>">
+                    <?php get_template_part('inc/img/logo'); ?>
+                </a>
             </div>
         </div>
     </div>

@@ -15,7 +15,11 @@
 @import "components/slider-cta";
 @import "components/gallery-feed";
 @import "components/video-modal";
-
+@import "components/highlights";
+@import "components/where-we-go";
+@import "components/services";
+@import "components/who-slider";
+@import "components/accordion";
 /*
 @import "components/bg-video";
 
@@ -40,13 +44,14 @@
 @import "layout/navigation";
 
 @import "pages/itinerary-details";
+@import "pages/404";
 /*
 @import "pages/home";
 @import "pages/news";
 @import "pages/itineraries";
 @import "pages/destinations";
 @import "pages/propertystyle";
-@import "pages/404";
+
 */
 
 @import "vendor/vendor";

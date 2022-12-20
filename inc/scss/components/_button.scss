@@ -12,6 +12,7 @@ $chevronOffset: 2rem;
   font-size: 1.2rem;
   font-weight: 400;
   letter-spacing: 1.7px;
+  transition: .3s all ease;
 
   &:after {
     content: '';
@@ -24,7 +25,10 @@ $chevronOffset: 2rem;
     background-position: center;
     width: 1rem;
     height: 100%;
+  }
 
+  &:hover {
+    background: darken($color-primary, 20%);
   }
 
   &__inline {

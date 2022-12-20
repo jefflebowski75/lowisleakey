@@ -1,6 +1,6 @@
 <div class="row-extended">
     <div class="grid-layout2 no-gutter">
-        <div class="image-panel-wrapper">
+        <div class="fmleft image-panel-wrapper">
             <?php
             if (have_rows('country_cta_location')):
                 while (have_rows('country_cta_location')):
@@ -17,7 +17,12 @@
                         </h2>
                     </div>
                     <div>
-                        <a href="" class="button button__inline button__ghost">Discover More</a>
+                        <?php $cat_link_term = get_sub_field('page_link'); ?>
+                        <?php if ($cat_link_term): ?>
+                        <a href="<?php bloginfo('url'); ?>/destination/<?php echo $cat_link_term->slug; ?>"
+                            class="button button__inline button__ghost">Discover More</a>
+                        <?php endif; ?>
+
                     </div>
                 </div>
             </div>
@@ -25,7 +30,7 @@
             endif; ?>
 
         </div>
-        <div class="map-wrapper">
+        <div class="fmright map-wrapper">
             <?php get_template_part("inc/img/africa-map"); ?>
             <div class="country-panel">
                 <?php

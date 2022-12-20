@@ -9,6 +9,7 @@ body {
   font-family: $default-header-style;
   font-weight: 300;
   line-height: 1;
+  text-transform: uppercase;
 
   &__xl {
     font-size: 8rem;
@@ -16,7 +17,7 @@ body {
   }
 
   &__lg {
-    font-size: $default-font-size * 3.5;
+    font-size: $default-font-size * 3.1;
     font-weight: 400;
   }
 
@@ -30,10 +31,19 @@ body {
     font-weight: 400;
   }
 
+  &__xs {
+    font-size: $default-font-size * 1;
+    font-weight: 400;
+  }
+
   &__alt {
     font-family: $alt-font-header;
     text-transform: uppercase;
     color: white;
+  }
+
+  &__center {
+    text-align: center;
   }
 
   @include respond(phone) {}
@@ -49,6 +59,10 @@ body {
 
   &__uppercase {
     text-transform: uppercase;
+  }
+
+  &__unset-case {
+    text-transform: unset;
   }
 
   &+p {
@@ -82,6 +96,8 @@ p a {
       height: 100%;
     }
   }
+
+
 }
 
 .paragraph,
@@ -93,6 +109,10 @@ ul {
 
   &:not(:last-child) {
     margin-bottom: 2rem;
+  }
+
+  &.small {
+    font-size: $default-font-size * .8;
   }
 }
 

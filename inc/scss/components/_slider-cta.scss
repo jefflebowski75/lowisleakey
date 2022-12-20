@@ -30,6 +30,12 @@
             margin-bottom: 3rem;
         }
     }
+}
+
+.owl-theme {
+    .owl-item {
+        transition: 1s opacity ease;
+    }
 
     .owl-item:not(.active) {
         opacity: 0.5;

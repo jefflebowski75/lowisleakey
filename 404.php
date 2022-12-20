@@ -10,26 +10,21 @@ get_header();
 
 <?php if (strpos($_SERVER["REQUEST_URI"], "/your-safari/") !== false) {
     get_template_part('template-parts/check-password');
-} ?>
+} else { ?>
 
+<?php $pageImage = get_field('log_in_background', 'options'); ?>
 
+<div class="error-404" style="background-image: url(<?php echo $pageImage; ?>);">
+    <div class="row">
+        <div class="content">
+            <h1 class="heading heading__med heading__light">Looks like we've taken a wrong turn</h1>
+            <p>Let's go home and try again.</p>
+            <a href="<?php echo home_url(); ?>" class="button button__inline">Home</a>
+        </div>
+    </div>
 
-<div id="primary" class="content-area">
-    <main id="main" class="site-main">
-
-        <section class="error-404 not-found">
-
-            <span class="loader"></span>
-            <h1 class="heading-primary--main">ERROR 4<span>0</span>4</h1>
-            <h3 class="error-copy robo-font">Page not found</h3>
-
-
-
-        </section><!-- .error-404 -->
-
-    </main><!-- #main -->
-</div><!-- #primary -->
-
+</div>
+<?php } ?>
 <script>
     document.getElementById("goto-itin").onclick = function () { findItinerary() };
     function findItinerary() {
