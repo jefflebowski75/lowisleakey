@@ -20,7 +20,7 @@ get_header(); ?>
 
 <div class="vertical-spacing"></div>
 
-<div class="row">
+<div class="row diaries-feed">
     <div class="grid-layout2">
         <div>
             <h4 class="heading heading__med">Safari Diaries</h4>

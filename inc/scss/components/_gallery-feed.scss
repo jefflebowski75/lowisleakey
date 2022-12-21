@@ -1,6 +1,4 @@
 .gallery-feed {
-    margin-top: 5rem;
-
     &__card {
         position: relative;
         display: grid;
@@ -74,5 +72,12 @@
                 object-fit: cover;
             }
         }
+    }
+}
+
+.diaries-feed {
+    p {
+        margin-bottom: 3rem;
+        ;
     }
 }
